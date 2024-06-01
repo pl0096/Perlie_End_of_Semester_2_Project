@@ -23,7 +23,6 @@ public class Sound {
     public void setFile(int i) {
 
         try {
-            System.out.println(soundURL[0]);
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
             clip = AudioSystem.getClip();
             clip.open(ais);

@@ -18,13 +18,14 @@ public class UI {
     public String message = "";
     int messageCounter = 0;
     public boolean gameFinished = false;
+    public boolean gameLost = false;
     double playTime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
 
     public UI(GamePanel gp) {
 
         this.gp = gp;
-        arial_40 = new Font("Courier New", Font.PLAIN, 40);
+        arial_40 = new Font("Courier New", Font.PLAIN, 30);
         arial_80B = new Font("Courier New", Font.BOLD, 80);
 
         //CREATE HUD OBJECT
@@ -41,18 +42,84 @@ public class UI {
 
     public void draw(Graphics2D g2) {
 
-        this.g2 = g2;
+        if(gameFinished) {
 
-        g2.setFont(arial_80B);
-        g2.setColor(Color.white);
+            String text;
+            int textLength;
+            int x;
+            int y;
 
-        if(gp.gameState == gp.playState) {
-            drawPlayerLife();
+
+            if(gameLost) {
+                g2.setFont(arial_40);
+                g2.setColor(Color.white);
+
+                text = "You also got infected! Try again!";
+                textLength = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+
+                x = gp.screenWidth / 2 - textLength/2;
+                y = gp.screenHeight / 2 + (gp.tileSize * 3);
+                g2.drawString(text, x, y);
+
+
+                g2.setFont(arial_80B);
+                g2.setColor(Color.red);
+                text = "Oh no!";
+                textLength = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+
+
+
+                x = gp.screenWidth / 2 - textLength/2;
+                y = gp.screenHeight / 2 - (gp.tileSize * 2);
+                g2.drawString(text, x, y);
+            }
+            else {
+                g2.setFont(arial_40);
+                g2.setColor(Color.white);
+
+                text = "You found the medicine to cure the dogs!";
+                textLength = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+
+                x = gp.screenWidth / 2 - textLength/2;
+                y = gp.screenHeight / 2 + (gp.tileSize * 3);
+                g2.drawString(text, x, y);
+
+
+                g2.setFont(arial_80B);
+                g2.setColor(Color.yellow);
+                text = "Congratulations!";
+                textLength = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+
+
+
+                x = gp.screenWidth / 2 - textLength/2;
+                y = gp.screenHeight / 2 - (gp.tileSize * 2);
+                g2.drawString(text, x, y);
+
+            }
+            gp.gameThread = null;
+
+
+
+
+
 
         }
-        if(gp.gameState == gp.pauseState) {
-            drawPlayerLife();
+        else{
+            this.g2 = g2;
+
+            g2.setFont(arial_80B);
+            g2.setColor(Color.white);
+
+            if(gp.gameState == gp.playState) {
+                drawPlayerLife();
+
+            }
+            if(gp.gameState == gp.pauseState) {
+                drawPlayerLife();
+            }
         }
+
     }
     public void drawPlayerLife() {
 

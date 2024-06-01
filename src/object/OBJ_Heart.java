@@ -13,9 +13,9 @@ public class OBJ_Heart extends Entity {
 
         name = "Heart";
 
-        image2 = setup("/object/object5");
-        image3 = setup("/object/object6");
-        image = setup("/object/object4");
+        image2 = setup("/object/object5", gp.tileSize, gp.tileSize);
+        image3 = setup("/object/object6", gp.tileSize, gp.tileSize);
+        image = setup("/object/object4", gp.tileSize, gp.tileSize);
 
 
     }

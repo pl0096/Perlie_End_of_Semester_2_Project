@@ -26,14 +26,14 @@ public class NPC_Dog extends Entity{
         getImage();
     }
     public void getImage(){
-        up1 = setup("/npc/npc2");
-        up2 = setup("/npc/npc3");
-        down1 = setup("/npc/npc0");
-        down2 = setup("/npc/npc1");
-        left1 = setup("/npc/npc4");
-        left2 = setup("/npc/npc5");
-        right1 = setup("/npc/npc6");
-        right2 = setup("/npc/npc7");
+        up1 = setup("/npc/npc2", gp.tileSize, gp.tileSize);
+        up2 = setup("/npc/npc3", gp.tileSize, gp.tileSize);
+        down1 = setup("/npc/npc0", gp.tileSize, gp.tileSize);
+        down2 = setup("/npc/npc1", gp.tileSize, gp.tileSize);
+        left1 = setup("/npc/npc4", gp.tileSize, gp.tileSize);
+        left2 = setup("/npc/npc5", gp.tileSize, gp.tileSize);
+        right1 = setup("/npc/npc6", gp.tileSize, gp.tileSize);
+        right2 = setup("/npc/npc7", gp.tileSize, gp.tileSize);
     }
 
     public void setAction() {

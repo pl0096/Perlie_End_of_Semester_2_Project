@@ -12,7 +12,7 @@ public class OBJ_Chest extends Entity {
     public OBJ_Chest(GamePanel gp){
         super(gp);
         name = "Chest";
-        down1 = setup("/object/object0");
+        down1 = setup("/object/object0", gp.tileSize, gp.tileSize);
 
 
         collision = true;

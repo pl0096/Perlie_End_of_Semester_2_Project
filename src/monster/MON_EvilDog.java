@@ -25,14 +25,14 @@ public class MON_EvilDog extends Entity {
         getImage();
     }
     public void getImage(){
-        up1 = setup("/monster/evildog2");
-        up2 = setup("/monster/evildog3");
-        down1 = setup("/monster/evildog0");
-        down2 = setup("/monster/evildog1");
-        left1 = setup("/monster/evildog4");
-        left2 = setup("/monster/evildog5");
-        right1 = setup("/monster/evildog6");
-        right2 = setup("/monster/evildog7");
+        up1 = setup("/monster/evildog2", gp.tileSize, gp.tileSize);
+        up2 = setup("/monster/evildog3", gp.tileSize, gp.tileSize);
+        down1 = setup("/monster/evildog0", gp.tileSize, gp.tileSize);
+        down2 = setup("/monster/evildog1", gp.tileSize, gp.tileSize);
+        left1 = setup("/monster/evildog4", gp.tileSize, gp.tileSize);
+        left2 = setup("/monster/evildog5", gp.tileSize, gp.tileSize);
+        right1 = setup("/monster/evildog6", gp.tileSize, gp.tileSize);
+        right2 = setup("/monster/evildog7", gp.tileSize, gp.tileSize);
     }
     public void setAction() {
         actionLockCounter++;
